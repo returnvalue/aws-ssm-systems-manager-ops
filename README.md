@@ -29,8 +29,7 @@ The system implements a centralized management and configuration framework:
     ```bash
     terraform init
     terraform apply -auto-approve
-    
-```
+    ```
 
 ## Verification & Testing
 
@@ -41,14 +40,12 @@ To test the operational automation components:
     ```bash
     awslocal ssm get-parameter --name /sysops-lab/db/endpoint
     aws ssm get-parameter --name /sysops-lab/db/endpoint
-    
-```
+    ```
     Retrieve the secure API key:
     ```bash
     awslocal ssm get-parameter --name /sysops-lab/api/key --with-decryption
     aws ssm get-parameter --name /sysops-lab/api/key --with-decryption
-    
-```
+    ```
 
 2.  **Verify Managed Identity (Conceptual):**
     In a live AWS environment, an instance with the `ssm-managed-profile` would automatically appear in the SSM Managed Instances console.
@@ -64,8 +61,7 @@ To test the operational automation components:
       --document-name "AWS-RunShellScript" \
       --targets "Key=tag:Name,Values=ssm-managed-instance" \
       --parameters 'commands=["echo hello world"]'
-    
-```
+    ```
 
 ## Cleanup
 
